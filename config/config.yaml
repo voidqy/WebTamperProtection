@@ -1,0 +1,31 @@
+base:
+  web_dir: './TestWebContent' #  # 监控的网页目录
+  snapshot_file: './snapshot.json'  # 快照存储文件
+  suspicious_dir: './suspicious'  # 异常文件目录
+  snapshot_timeout: 300
+  full_check_interval: 3600  # 全量检查间隔(秒) - 默认1小时
+
+back:
+  backup_dir: './TestWebContent_back'  # 监控的网页目录
+  enable_backup_encryption: False  # 启用备份加密
+  backup_user: 'YAOYU'#'root'
+  backup_group: 'SYSTEM'#'root'
+  backup_space_factor: 2.0
+optimize:
+  use_crc32: True  # 使用crc32进行快速初步检查
+  max_file_size:  2097152 #1048576  524288# 大文件分块处理(1mb)
+  hash_chunk_size: 131072 # 131072  # 128kb哈希计算块大小
+  event_processors: 12  # 事件处理线程数
+  worker_threads: 2  # 工作线程数
+  event_process_delay: 0.05 # 事件处理延迟(秒) - 避免频繁操作
+
+# 邮件警报配置
+email_enabled: False
+alert_emails: ['alert_emails@domain.com']
+from_email: 'admin_emails@domain.com'
+smtp:
+  server: '127.0.0.1' # SMTP服务器地址
+  port: 110 # SMTP端口
+  username: 'admin_emails@domain.com' # 邮箱用户名
+  password: 'admin_password'   # 邮箱密码
+  use_tls: false
